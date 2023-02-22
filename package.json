@@ -1,0 +1,33 @@
+{
+  "name": "photo-grid-exercise",
+  "version": "1.0.0",
+  "description": "ConsultR challenge app",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite --open",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aranguez/photo-grid-exercise.git"
+  },
+  "keywords": [],
+  "author": "Leandro Aranguez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Aranguez/photo-grid-exercise/issues"
+  },
+  "homepage": "https://github.com/Aranguez/photo-grid-exercise#readme",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "@vitejs/plugin-react": "^3.1.0",
+    "typescript": "^4.9.5",
+    "vite": "^4.1.4"
+  }
+}
