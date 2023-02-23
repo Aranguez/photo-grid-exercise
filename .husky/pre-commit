@@ -50,3 +50,4 @@ no_console
 printf "${GREEN}Proceeding with commit...${NC}\n"
 
 npx lint-staged
+npm test
