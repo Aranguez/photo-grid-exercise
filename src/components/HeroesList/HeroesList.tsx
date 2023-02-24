@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import React, { FC } from 'react'
 
 import HeroCard from 'components/HeroCard'
 
@@ -15,14 +15,13 @@ const HeroesList: FC<Props> = ({ search = '', onlyFavorites = false }) => {
   const favoriteHeroes = useAppSelector((state) => state.heroes.favorites)
 
   const filteredHeroes = heroes.filter(hero => {
-    if (onlyFavorites) {
-      return favoriteHeroes.includes(hero.id) && hero.name.toLowerCase().includes(search.toLowerCase())
-    }
+    const filterBySearch = hero.name.toLowerCase().includes(search.toLowerCase())
+    const isFavorite = favoriteHeroes.includes(hero.id)
 
-    return hero.name.toLowerCase().includes(search.toLowerCase())
+    return filterBySearch && (onlyFavorites ? isFavorite : true)
   })
 
-  if (!filteredHeroes.length) {
+  if (filteredHeroes.length === 0) {
     return (
       <div className='flex items-center justify-center w-full h-screen text-center flex-col'>
         <AiOutlineFrown className='block text-8xl mb-5 dark:text-white' />
@@ -41,10 +40,11 @@ const HeroesList: FC<Props> = ({ search = '', onlyFavorites = false }) => {
           image={hero.images.md}
           height={hero.appearance.height[1]}
           weight={hero.appearance.weight[1]}
+          isFavorite={favoriteHeroes.includes(hero.id)}
         />
       ))}
     </section>
   )
 }
 
-export default HeroesList
+export default React.memo(HeroesList)

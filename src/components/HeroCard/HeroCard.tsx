@@ -1,7 +1,7 @@
-import { FC } from 'react'
+import React, { FC } from 'react'
 
 import { AiOutlineStar, AiTwotoneStar } from 'react-icons/ai'
-import { useAppDispatch, useAppSelector } from 'store'
+import { useAppDispatch } from 'store'
 import { toggleFavorite } from 'store/features/heroSlice'
 
 export type Props = {
@@ -10,13 +10,11 @@ export type Props = {
   image: string;
   height: string;
   weight: string;
+  isFavorite: boolean;
 };
 
-const HeroCard: FC<Props> = ({ id, image, name, height, weight }) => {
+const HeroCard: FC<Props> = ({ id, image, name, height, weight, isFavorite }) => {
   const dispatch = useAppDispatch()
-  const favoriteHeroes = useAppSelector((state) => state.heroes.favorites)
-
-  const isFavorite = favoriteHeroes.includes(id)
 
   return (
     <div data-testid='hero' className="w-48 h-60 rounded-md flex items-end relative overflow-hidden cursor-pointer group">
@@ -35,4 +33,4 @@ const HeroCard: FC<Props> = ({ id, image, name, height, weight }) => {
   )
 }
 
-export default HeroCard
+export default React.memo(HeroCard)
