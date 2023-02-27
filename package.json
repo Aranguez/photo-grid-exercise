@@ -10,7 +10,13 @@
     "prepare": "husky install",
     "test": "vitest --watch=false",
     "test:dev": "vitest",
-    "coverage": "vitest run --coverage"
+    "coverage": "vitest run --coverage",
+    "commit": "git-cz"
+  },
+  "config": {
+    "commitizen": {
+      "path": "@commitlint/cz-commitlint"
+    }
   },
   "repository": {
     "type": "git",
@@ -34,6 +40,7 @@
   "devDependencies": {
     "@commitlint/cli": "^17.4.4",
     "@commitlint/config-conventional": "^17.4.4",
+    "@commitlint/cz-commitlint": "^17.4.4",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "13.5.0",
     "@types/react": "^18.0.28",
@@ -43,10 +50,12 @@
     "@vitejs/plugin-react": "^3.1.0",
     "@vitest/coverage-c8": "^0.28.5",
     "autoprefixer": "^10.4.13",
+    "commitizen": "^4.3.0",
     "eslint": "^8.34.0",
     "eslint-plugin-react": "^7.32.2",
     "happy-dom": "^8.7.1",
     "husky": "^8.0.3",
+    "inquirer": "^8.2.5",
     "lint-staged": "^13.1.2",
     "postcss": "^8.4.21",
     "tailwindcss": "3.0.10",
